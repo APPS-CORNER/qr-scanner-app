@@ -1,0 +1,39 @@
+// HTML FILE: index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner & Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qr-scanner/qr-scanner.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Scanner & Generator</h1>
+        
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+        
+        <!-- QR Code Scanner -->
+        <video id="qr-video" playsinline></video>
+        <p id="qr-result"></p>
+        <button id="start-scan">Start Scan</button>
+        
+        <!-- QR Code Generator -->
+        <input type="text" id="qr-text" placeholder="Enter text or URL">
+        <input type="color" id="qr-color" value="#000000">
+        <input type="color" id="qr-bg-color" value="#ffffff">
+        <button id="generate-qr">Generate QR Code</button>
+        <button id="generate-location-qr">Generate Location QR</button>
+        <div id="qr-output"></div>
+        
+        <!-- Scan History -->
+        <h2>Scan History</h2>
+        <ul id="scan-history"></ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

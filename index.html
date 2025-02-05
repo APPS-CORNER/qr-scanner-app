@@ -1,4 +1,3 @@
-// HTML FILE: index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,28 +11,33 @@
 <body>
     <div class="container">
         <h1>QR Code Scanner & Generator</h1>
-        
-        <!-- Dark Mode Toggle -->
-        <button id="darkModeToggle">Toggle Dark Mode</button>
-        
-        <!-- QR Code Scanner -->
-        <video id="qr-video" playsinline></video>
-        <p id="qr-result"></p>
-        <button id="start-scan">Start Scan</button>
-        
-        <!-- QR Code Generator -->
-        <input type="text" id="qr-text" placeholder="Enter text or URL">
-        <input type="color" id="qr-color" value="#000000">
-        <input type="color" id="qr-bg-color" value="#ffffff">
-        <button id="generate-qr">Generate QR Code</button>
-        <button id="generate-location-qr">Generate Location QR</button>
-        <div id="qr-output"></div>
-        
-        <!-- Scan History -->
-        <h2>Scan History</h2>
-        <ul id="scan-history"></ul>
+
+        <button id="darkModeToggle" class="btn">Toggle Dark Mode</button>
+
+        <div class="card">
+            <h2>QR Code Scanner</h2>
+            <video id="qr-video" playsinline></video>
+            <p id="qr-result"></p>
+            <button id="start-scan" class="btn">Start Scan</button>
+        </div>
+
+        <div class="card">
+            <h2>QR Code Generator</h2>
+            <input type="url" id="qr-text" placeholder="Enter a valid URL or text">
+            <input type="color" id="qr-color" value="#000000">
+            <input type="color" id="qr-bg-color" value="#ffffff">
+            <button id="generate-qr" class="btn">Generate QR Code</button>
+            <button id="generate-location-qr" class="btn">Generate Location QR</button>
+            <div id="qr-output"></div>
+        </div>
+
+        <div class="card">
+            <h2>Scan History</h2>
+            <input type="text" id="search-bar" placeholder="Search history...">
+            <ul id="scan-history"></ul>
+        </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

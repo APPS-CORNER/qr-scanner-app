@@ -1,13 +1,21 @@
-/* JS FILE: script.js */
 document.getElementById("darkModeToggle").addEventListener("click", function() {
     document.body.classList.toggle("dark-mode");
 });
 
 document.getElementById("generate-qr").addEventListener("click", function() {
-    const qrText = document.getElementById("qr-text").value;
+    const qrText = document.getElementById("qr-text").value.trim();
+    
+    // Check if it's a valid URL
+    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\w .-]*)*\/?$/;
+    if (qrText && !urlPattern.test(qrText) && !qrText.includes(" ")) {
+        alert("Please enter a valid URL or text.");
+        return;
+    }
+
     const qrColor = document.getElementById("qr-color").value;
     const qrBgColor = document.getElementById("qr-bg-color").value;
     document.getElementById("qr-output").innerHTML = "";
+    
     new QRCode(document.getElementById("qr-output"), {
         text: qrText,
         width: 128,
@@ -53,3 +61,16 @@ function addToHistory(qrData) {
     listItem.textContent = qrData;
     historyList.appendChild(listItem);
 }
+
+// Live search filter for scan history
+document.getElementById("search-bar").addEventListener("input", function() {
+    let filter = this.value.toLowerCase();
+    let items = document.querySelectorAll("#scan-history li");
+    items.forEach(item => {
+        if (item.textContent.toLowerCase().includes(filter)) {
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
